@@ -1,11 +1,10 @@
-FROM nginx
+FROM nginx:alpine
 MAINTAINER Stephen Liang "docker-maint@stephenliang.pw"
 
 ADD default.conf /etc/nginx/conf.d/default.conf
 
 # Grab dependencies
-RUN apt-get update && apt-get install -y curl
-RUN curl -sL https://deb.nodesource.com/setup | bash - && apt-get update && apt-get install -y curl git nodejs
+RUN apk update && apk add curl && apk add nodejs
 RUN npm install -g hexo-cli
 
 # Create hexo base files
