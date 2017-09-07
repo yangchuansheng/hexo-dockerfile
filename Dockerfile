@@ -13,4 +13,4 @@ RUN hexo init /usr/share/nginx/html
 WORKDIR /usr/share/nginx/html
 RUN npm install
 
-CMD hexo generate && nginx -g "daemon off;"
+CMD nginx -g "daemon off;"
